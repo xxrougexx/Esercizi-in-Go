@@ -1,34 +1,43 @@
 package main
-import "fmt"
+import (
+  "fmt"
+  "strings"
+  "strconv"
+)
 //import "math"
-import "strings"
-import "strconv"
 
 //Inserita una equazione dice se è una funzione(fatto) e se è iniettiva,suriettiva o biettiva
 func main() {
-  var f string
-  var i int
-  d := []string{""}
+  var equaz,potenza string
+  var i, j, checkFunc int
+  d := []string{}
 
-  //d2[0] = "0"
-  //var i int
   fmt.Println("Caratteri per operazioni: +-*/^(variabili con x e y)")
+  fmt.Println("Se si vuole elevare, immettere la potenza tra parentesi")
   fmt.Print("Inserisci equazione: ")
-  fmt.Scan(&f)
-  d = strings.Split(f, "")
-  fmt.Printf("%q", d)
+  fmt.Scan(&equaz)
+  d = strings.Split(equaz, "")
 
-  i, _ = strconv.Atoi(d[2])
-  if i%2  == 0{
-    fmt.Println("L'equazione non è una funzione")
-  }
-/*  if strings.Contains(f, "x") == true {
-    for i = 0;i < 10;i++ {
-      if strings.Contains(f, strconv.Itoa(i)){
-        f = strings.Replace(f, strconv.Itoa(i), "0", -1)
-        fmt.Print(f)
-        fmt.Println("Perfect")
+  fmt.Printf("%q\n", d)
+  for i = 0; i < len(d); i++ {
+    p := &d[i]
+    if *p == "^" {
+      j = i + 2
+      /*Il seguente for è in questa modalità
+      perchè dovevo fare l'aggiornamento prima del check*/
+      for {
+        p = &d[j]
+        if *p == ")" {
+          break
+        }
+        potenza = potenza + *p
+        j++
       }
     }
-  }*/
+  }
+  checkFunc, _ = strconv.Atoi(potenza)
+  fmt.Println(potenza)
+  if checkFunc%2  == 0 {
+    fmt.Println("L'equazione non è una funzione")
+  }
 }
