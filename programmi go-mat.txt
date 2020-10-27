@@ -1,0 +1,8 @@
+Programma che, inserita una funzione, valuta se è definita(a un x non ci sono due valori in y).
+Programma che popola(o chiede input all'utente) due insiemi(array) 
+e calcola la loro unione, intersezione e differenza.
+Programma che, inseriti valori per X e Y, calcoli il loro prodotto cartesiano e la sua cardinalità.
+Programma che inseriti vari numeri, fa le loro disposizioni, composizioni ecc.
+
+
+  
